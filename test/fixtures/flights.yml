@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  from_code_id: 1
+  depart_date: MyString
+  date: MyString
+  depart_time: MyString
+  time: MyString
+  to_code_id: 1
+  arrival_date: MyString
+  date: MyString
+  arrival_time: 2017-11-26 16:50:22
+
+two:
+  from_code_id: 1
+  depart_date: MyString
+  date: MyString
+  depart_time: MyString
+  time: MyString
+  to_code_id: 1
+  arrival_date: MyString
+  date: MyString
+  arrival_time: 2017-11-26 16:50:22
