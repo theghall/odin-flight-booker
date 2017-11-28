@@ -1,0 +1,25 @@
+<h1>Flight Search</h1>
+<%= form_tag(flights_path, method: :get) do %>
+  <%= hidden_field_tag('authenticity_token', value="#{form_authenticity_token}") %>
+  <%= label_tag(:departs, 'Departs') %>
+  <%= select_tag(:departs,options_for_select(@departure_days)) %>
+  <%= label_tag(:num_tickets, 'Passengers') %>
+  <%= select_tag(:num_tickets, options_for_select(1..@max_passengers)) %>
+  <%= label_tag(:from, 'From') %>
+  <%= select_tag(:from, options_from_collection_for_select(@airports, :id, :code)) %>
+  <%= label_tag(:to, 'To') %>
+  <%= select_tag(:to, options_from_collection_for_select(@airports, :id, :code)) %>
+  <%= submit_tag('Search') %>
+<% end %>
+<h2>Search Results:</h2>
+<% if @flights && @flights.any? %>
+  <p>Flights from <%= @from_code %> to <%= @to_code %></p>
+  <%= form_tag('#', method: :get) do %>
+    <%= hidden_field_tag('authenticity_token', value="#{form_authenticity_token}") %>
+    <%= collection_radio_buttons(:flight, :id, @flights, :id, :departs) %>
+    <%= hidden_field_tag('num_tickets', value="#{@num_tickets}") %>
+    <%= submit_tag('Submit') %>
+  <% end %>
+<% else %>
+  <p>No flights from <%= @from_code %> to <%= @to_code %> on <%= @depart_date %></p>
+<% end %>

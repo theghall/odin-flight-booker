@@ -26,15 +26,15 @@ ActiveRecord::Schema.define(version: 20171127023805) do
 
   create_table "flights", force: :cascade do |t|
     t.integer "from_code_id"
-    t.string "depart_date"
-    t.string "date"
-    t.string "depart_time"
-    t.string "time"
+    t.datetime "departs"
+    t.integer "flight_time_mins"
     t.integer "to_code_id"
     t.string "arrival_date"
+    t.string "date"
     t.time "arrival_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["departs"], name: "index_flights_on_departs"
     t.index ["from_code_id"], name: "index_flights_on_from_code_id"
     t.index ["to_code_id", "from_code_id"], name: "index_flights_on_to_code_id_and_from_code_id"
     t.index ["to_code_id"], name: "index_flights_on_to_code_id"
