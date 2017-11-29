@@ -1,0 +1,19 @@
+<h1>Book your flight</h1>
+<p>Booking for <%= @from_airport %> to <%= @to_airport %> on <%= @departs %></p>
+<%= form_for(@booking, url: bookings_path) do |f| %>
+  <%= f.hidden_field(:flight_id, value: @booking.flight_id) %>
+    <% num = 1 %>
+    <%= f.fields_for :passengers do |ticket| %>
+      <p>
+      Passenger<%= "#{num}:" %>
+      <%= ticket.label :name %>
+      <%= ticket.text_field :name %>
+      <%= ticket.label :email %>
+      <%= ticket.text_field :email %>
+      </p>
+      <% num += 1 %>
+    <% end %>
+  <%# end %>
+  <%= f.submit 'Book' %>
+<% end %>
+

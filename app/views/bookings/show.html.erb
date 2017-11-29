@@ -1,0 +1,7 @@
+<h1>Your Booking</h1>
+<p>Your party is now booked on the following flight:</p>
+<p>Departing: <%= @flight_from %> on <%= @departs %> Arriving: <%= @flight_to %></p>
+<p>Passengers:</p>
+<% @passengers.each do |p| %>
+  <p><%= p.name %></p>
+<% end %>

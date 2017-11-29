@@ -14,10 +14,10 @@
 <h2>Search Results:</h2>
 <% if @flights && @flights.any? %>
   <p>Flights from <%= @from_code %> to <%= @to_code %></p>
-  <%= form_tag('#', method: :get) do %>
+  <%= form_tag(new_booking_path, method: :get) do %>
     <%= hidden_field_tag('authenticity_token', value="#{form_authenticity_token}") %>
     <%= collection_radio_buttons(:flight, :id, @flights, :id, :departs) %>
-    <%= hidden_field_tag('num_tickets', value="#{@num_tickets}") %>
+    <%= hidden_field_tag('flight[num_tickets]', value="#{@num_tickets}") %>
     <%= submit_tag('Submit') %>
   <% end %>
 <% else %>
