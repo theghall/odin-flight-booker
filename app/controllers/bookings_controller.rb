@@ -20,7 +20,10 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(booking_params)
 
-    @booking.save
+    if @booking.save
+      PassengerMailer.thank_you(@booking).deliver_now
+    end
+
 
     redirect_to booking_path(@booking) 
   end 

@@ -1,0 +1,7 @@
+Thank you for booking with Odin Flight Booker
+Here are your flight details:
+Departing: <%= @from_airport %> at: <%= @departs %> Arriving: <%= @to_airport %>
+Passengers:
+<% @passengers.each do |p| %>
+	<%= p.name %>
+<% end %>

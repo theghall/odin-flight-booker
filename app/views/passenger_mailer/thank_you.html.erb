@@ -1,0 +1,7 @@
+<h4>Thank you for booking with Odin Flight Booker</h4>
+<p>Here are your flight details:</p>
+<p>Departing: <%= @from_airport %> at: <%= @departs %> Arriving: <%= @to_airport %></p>
+<p>Passengers:</p>
+<% @passengers.each do |p| %>
+	<p><%= p.name %></p>
+<% end %>
